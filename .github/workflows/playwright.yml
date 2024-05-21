@@ -7,9 +7,6 @@ on:
       - 'package-lock.json'
   pull_request:
     branches: [master]
-    paths:
-      - 'apps/studio/**'
-      - 'package-lock.json'
 
 # Cancel old builds on new commit for same workflow + branch/PR
 concurrency:
