@@ -7,9 +7,6 @@ on:
       - 'package-lock.json'
   pull_request:
     branches: [master]
-    paths:
-      - 'apps/studio/**'
-      - 'package-lock.json'
 
 # Cancel old builds on new commit for same workflow + branch/PR
 concurrency:
@@ -20,6 +17,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      REPLAY_API_KEY: ${{ secrets.REPLAY_API_KEY }}
 
     steps:
       - uses: actions/checkout@v4
