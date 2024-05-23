@@ -1,5 +1,5 @@
-import { defineConfig, devices } from '@playwright/test'
-import { createReplayReporterConfig, devices as replayDevices } from '@replayio/playwright'
+import { defineConfig } from '@playwright/test'
+import { replayReporter, devices as replayDevices } from '@replayio/playwright'
 
 /**
  * Read environment variables from file.
@@ -23,7 +23,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
-    createReplayReporterConfig({
+    replayReporter({
       apiKey: process.env.REPLAY_API_KEY,
       upload: true,
     }),
